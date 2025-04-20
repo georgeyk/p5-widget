@@ -1,21 +1,20 @@
-// import p5 from './p5-2.0.0.mjs';
 import p5 from './p5-1.11.5.mjs';
 
 function render({ model, el }) {
     const wrapper = document.createElement("div");
+    wrapper.id = "p5-widget-wrapper";
 
-    let sketch_content = model.get("sketch").trim();
-    if (!sketch_content.startsWith("return")) {
-        sketch_content = "return " + sketch_content;
+    let sketchContent = model.get("sketch").trim();
+    if (!sketchContent.startsWith("return")) {
+        sketchContent = "return " + sketchContent;
     }
 
-    let sketch = new Function(sketch_content)();
-
-    const app = new p5((p) => new sketch(p), wrapper);
+    let sketchClass = new Function(sketchContent)();
+    const sketch = new p5((p) => new sketchClass(p), wrapper);
 
     // TODO: investigate
-    if (app.canvas.dataset.hidden === 'true') {
-        app.canvas.style.visibility = '';
+    if (sketch.canvas.dataset.hidden === 'true') {
+        sketch.canvas.style.visibility = '';
     }
 
     el.appendChild(wrapper);

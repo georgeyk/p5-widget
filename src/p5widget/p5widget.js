@@ -18407,14 +18407,15 @@ var Wn = kr.default ?? kr;
 // src/js/widget.js
 function render({ model, el }) {
   const wrapper = document.createElement("div");
-  let sketch_content = model.get("sketch").trim();
-  if (!sketch_content.startsWith("return")) {
-    sketch_content = "return " + sketch_content;
+  wrapper.id = "p5-widget-wrapper";
+  let sketchContent = model.get("sketch").trim();
+  if (!sketchContent.startsWith("return")) {
+    sketchContent = "return " + sketchContent;
   }
-  let sketch = new Function(sketch_content)();
-  const app = new Wn((p) => new sketch(p), wrapper);
-  if (app.canvas.dataset.hidden === "true") {
-    app.canvas.style.visibility = "";
+  let sketchClass = new Function(sketchContent)();
+  const sketch = new Wn((p) => new sketchClass(p), wrapper);
+  if (sketch.canvas.dataset.hidden === "true") {
+    sketch.canvas.style.visibility = "";
   }
   el.appendChild(wrapper);
 }

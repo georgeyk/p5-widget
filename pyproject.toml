@@ -1,7 +1,7 @@
 [project]
-name = "p5-widget"
+name = "p5widget"
 version = "0.1.0"
-description = "Add your description here"
+description = "An p5.js widget for notebooks"
 readme = "README.md"
 authors = [
     { name = "George Y. Kussumoto", email = "georgeyk.dev@gmail.com" }
