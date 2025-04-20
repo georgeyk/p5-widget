@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "./node_modules/.bin/esbuild src/js/widget.js --bundle --outfile=src/p5widget/p5widget.js --format=esm --watch"
+    "dev": "./node_modules/.bin/esbuild src/js/widget.js --bundle --outfile=src/p5widget/p5widget.js --format=esm --watch",
+    "build": "./node_modules/.bin/esbuild src/js/widget.js --bundle --outfile=src/p5widget/p5widget.js --format=esm --minify"
   },
   "dependencies": {
     "esbuild": "^0.25.2",
