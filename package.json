@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "./node_modules/.bin/esbuild src/js/widget.js --bundle --outfile=src/p5widget/p5widget.js --format=esm --watch"
+  },
   "dependencies": {
     "esbuild": "^0.25.2",
     "p5": "^2.0.0"
