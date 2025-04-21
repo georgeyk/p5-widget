@@ -7,6 +7,7 @@ authors = [
     { name = "George Y. Kussumoto", email = "georgeyk.dev@gmail.com" }
 ]
 requires-python = ">=3.11.5"
+keywords = ["p5", "p5js", "widget", "notebook"]
 classifiers = [
     "Intended Audience :: Developers",
     "Programming Language :: Python :: 3",
@@ -16,6 +17,9 @@ dependencies = [
     "anywidget>=0.9.18",
     "traitlets>=5.14.3",
 ]
+
+[project.urls]
+home = "https://github.com/georgeyk/p5-widget"
 
 [build-system]
 requires = ["hatchling"]
@@ -30,3 +34,10 @@ dev = [
 
 [tool.hatch.version]
 path = "src/p5widget/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "src/js/",
+  "docs/",
+  "examples/",
+]

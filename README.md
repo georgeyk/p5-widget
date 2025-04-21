@@ -4,6 +4,7 @@ A [p5.js][1] widget for [marimo][2] notebooks.
 
 > [!WARNING]
 > This is an experiment. Expect breaking changes.
+>
 > Current p5.js version: 1.11.5
 
 > [!TIP]
@@ -14,14 +15,9 @@ A [p5.js][1] widget for [marimo][2] notebooks.
 It's available through PyPI.
 
 ```shell
-$ pip install p5-widget
-$ uv add p5-widget  # alternatively
+$ pip install p5widget
+$ uv add p5widget  # alternatively
 ```
-
-
-## Examples
-
-List of demos here.
 
 
 [1]: https://p5js.org/
