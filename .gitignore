@@ -175,3 +175,5 @@ cython_debug/
 
 node_modules
 __marimo__
+tmp
+.DS_Store
