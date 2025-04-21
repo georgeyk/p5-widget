@@ -1,4 +1,4 @@
-class Sketch {
+export default class Sketch {
   constructor(p) {
     p.setup = () => this.setup();
     p.draw = () => this.draw();
