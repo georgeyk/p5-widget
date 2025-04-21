@@ -20,6 +20,11 @@ $ uv add p5widget  # alternatively
 ```
 
 
+## Demos
+
+PoC: https://georgeyk.github.io/p5-widget/
+
+
 [1]: https://p5js.org/
 [2]: https://marimo.app/
 [3]: examples/sketch-template.js
