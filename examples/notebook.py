@@ -10,26 +10,26 @@ app = marimo.App(width="medium")
 def _():
     import marimo as mo
     from p5widget import P5Widget
+
     return P5Widget, mo
 
 
 @app.cell
 def _():
     sketch = """
-        class Sketch {
+        export default class Sketch {
           constructor(p) {
+            this.p = p;
             this.color = null;
+
             p.setup = () => this.setup();
             p.draw = () => this.draw();
             p.mousePressed = () => this.mousePressed();
-            this.p = p;
           }
 
           setup() {
-            const p = this.p;
             this.mousePressed();
-            p.createCanvas(400, 400);
-            p.angleMode(p.DEGREES);
+            this.p.createCanvas(400, 400);
 
           }
 
@@ -48,7 +48,6 @@ def _():
 
           mousePressed() {
             this.color = [this.p.random(255), this.p.random(255), this.p.random(255)];
-            console.log("clicked");
           }
         };
     """
@@ -57,8 +56,15 @@ def _():
 
 @app.cell
 def _(P5Widget, mo, sketch):
-    sk = P5Widget(sketch=sketch, center=True)
-    mo.ui.anywidget(sk)
+    sk1 = P5Widget(sketch=sketch)
+    mo.ui.anywidget(sk1)
+    return
+
+
+@app.cell
+def _(P5Widget, mo):
+    sk2 = P5Widget.from_file("examples/sketch-0.js", center=True)
+    mo.ui.anywidget(sk2)
     return
 
 
