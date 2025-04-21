@@ -11,9 +11,14 @@ class P5Widget(anywidget.AnyWidget):
     _esm = Path(__file__).parent / "p5widget.js"
     sketch = traitlets.Unicode("").tag(sync=True)
 
-    def __init__(self, center=True, *args, **kwargs):
+    def __init__(self, center=True, **kwargs):
+        self._css = """
+            #p5-widget-wrapper canvas {
+                visibility: visible !important;
+            }
+        """
         if center:
-            self._css = """
+            self._css += """
                 #p5-widget-wrapper {
                     display: flex;
                     justify-content: center;
@@ -21,14 +26,12 @@ class P5Widget(anywidget.AnyWidget):
                 }
             """.strip()
 
-        super().__init__(*args, **kwargs)
+        super().__init__(**kwargs)
 
     @classmethod
-    def from_file(cls, sketch_filename: str, *args, **kwargs) -> "P5Widget":
-        # check "try_file_contents"
-        # https://github.com/manzt/anywidget/blob/main/anywidget/_util.py#L262
+    def from_file(cls, sketch_filename: str, **kwargs) -> "P5Widget":
         sketch_file = Path(sketch_filename)
         if not (sketch_file.is_file() and sketch_file.exists()):
-            raise FileNotFoundError
+            raise FileNotFoundError(f"Failed to open `{sketch_file}`")
 
-        return cls(sketch=sketch_file.read_text(), *args, **kwargs)
+        return cls(sketch=sketch_file.read_text(), **kwargs)
