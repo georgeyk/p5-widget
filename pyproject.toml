@@ -1,12 +1,17 @@
 [project]
 name = "p5widget"
-version = "0.1.0"
-description = "An p5.js widget for notebooks"
+dynamic = ["version"]
+description = "An p5.js anywidget for notebooks"
 readme = "README.md"
 authors = [
     { name = "George Y. Kussumoto", email = "georgeyk.dev@gmail.com" }
 ]
 requires-python = ">=3.11.5"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
 dependencies = [
     "anywidget>=0.9.18",
     "traitlets>=5.14.3",
@@ -22,3 +27,6 @@ dev = [
     "mypy>=1.15.0",
     "ruff>=0.11.6",
 ]
+
+[tool.hatch.version]
+path = "src/p5widget/__init__.py"
