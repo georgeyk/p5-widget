@@ -60,7 +60,7 @@ def _():
 
 @app.cell
 def _(P5Widget, mo, sketch):
-    sk1 = mo.ui.anywidget(P5Widget(sketch=sketch))
+    sk1 = P5Widget(sketch=sketch)
     mo.ui.anywidget(sk1)
     return
 
